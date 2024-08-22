@@ -17,3 +17,11 @@ The goal of this project was to develop an app that utilizes state management wi
 ### Functionality
 
 OrmaSearch is essentially a "browser" that allows users to make queries and search on Google using this Android app.
+
+### Demo
+
+![1](assets/screenshots/Screen1.png)
+
+![2](assets/screenshots/Screen2.png)
+
+![3](assets/screenshots/Screen3.png)
