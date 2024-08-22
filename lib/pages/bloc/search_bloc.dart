@@ -20,7 +20,8 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
     final Uri request = Uri.parse(url);
 
+    emit(state.copyWith(newIsLoading: true));
     Response response = await http.get(request);
-    emit(state.copyWith(newContent: response.body));
+    emit(state.copyWith(newContent: response.body, newIsLoading: false));
   }
 }

@@ -29,24 +29,36 @@ class PageResults extends StatelessWidget {
             Expanded(
               child: BlocBuilder<SearchBloc, SearchState>(
                   builder: (context, state) => SingleChildScrollView(
-                      child: Container(
-                          height: MediaQuery.of(context).size.height,
-                          child: WebViewWidget(controller: WebViewController()
-                            ..setJavaScriptMode(JavaScriptMode.unrestricted)
-                            ..setNavigationDelegate(
-                              NavigationDelegate(
-                                onPageStarted: (String url) {},
-                                onPageFinished: (String url) {},
-                                onHttpError: (HttpResponseError error) {},
-                                onWebResourceError: (WebResourceError error) {},
-                                onNavigationRequest: (NavigationRequest request) {
-                                  if (request.url.startsWith('https://www.google.com/')) {
-                                    return NavigationDecision.prevent;
-                                  }
-                                  return NavigationDecision.navigate;
-                                },
-                              ),
-                            )..loadHtmlString(state.content.toString()))))),
+                      child: state.isLoading
+                          ? Container(
+                              child: Image.asset("assets/icons/loading.gif"),
+                            )
+                          : Container(
+                              height: MediaQuery.of(context).size.height,
+                              child: WebViewWidget(
+                                  controller: WebViewController()
+                                    ..setJavaScriptMode(
+                                        JavaScriptMode.unrestricted)
+                                    ..setNavigationDelegate(
+                                      NavigationDelegate(
+                                        onPageStarted: (String url) {},
+                                        onPageFinished: (String url) {},
+                                        onHttpError:
+                                            (HttpResponseError error) {},
+                                        onWebResourceError:
+                                            (WebResourceError error) {},
+                                        onNavigationRequest:
+                                            (NavigationRequest request) {
+                                          if (request.url.startsWith(
+                                              'https://www.google.com/')) {
+                                            return NavigationDecision.prevent;
+                                          }
+                                          return NavigationDecision.navigate;
+                                        },
+                                      ),
+                                    )
+                                    ..loadHtmlString(
+                                        state.content.toString()))))),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
