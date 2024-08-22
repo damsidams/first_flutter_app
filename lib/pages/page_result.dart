@@ -49,10 +49,6 @@ class PageResults extends StatelessWidget {
                                             (WebResourceError error) {},
                                         onNavigationRequest:
                                             (NavigationRequest request) {
-                                          if (request.url.startsWith(
-                                              'https://www.google.com/')) {
-                                            return NavigationDecision.prevent;
-                                          }
                                           return NavigationDecision.navigate;
                                         },
                                       ),

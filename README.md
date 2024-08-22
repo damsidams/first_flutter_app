@@ -1,16 +1,19 @@
-# ormaes
+# Ormaes Flutter Training
 
-A new and first Flutter project.
+This is my first Flutter project, created to introduce myself to Object-Oriented Programming during my internship at Ormaes Company.
 
-## Getting Started
+## OrmaSearch
 
-This project is a starting point for a Flutter application.
+### Project Overview
 
-A few resources to get you started if this is your first Flutter project:
+The goal of this project was to develop an app that utilizes state management with events, a clean UI, and PageRoute for navigation between different pages. These personal requirements were set to help me get hands-on experience with all the basic functionalities of Flutter.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **State Management**: Efficient handling of app states using events.
+- **Clean UI**: A user-friendly and visually appealing interface.
+- **Page Navigation**: Seamless navigation between different pages using PageRoute.
+
+### Functionality
+
+OrmaSearch is essentially a "browser" that allows users to make queries and search on Google using this Android app.
