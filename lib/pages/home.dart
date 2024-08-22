@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ormaes/pages/results.dart';
+import 'package:ormaes/pages/page_result.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -31,7 +31,8 @@ class HomePage extends StatelessWidget {
                 contentPadding: const EdgeInsets.all(15),
                 prefixIconConstraints: const BoxConstraints(minWidth: 30, maxHeight: 30),
                 suffixIconConstraints: const BoxConstraints(minWidth: 30, maxHeight: 30),
-                prefixIcon: IconButton(onPressed: () {
+                prefixIcon: IconButton(
+                  onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => PageResults(query: dataSave.text))
