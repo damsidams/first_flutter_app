@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ormaes/pages/page_result.dart';
+
+import 'bloc/search_bloc.dart';
+import 'bloc/search_event.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -33,6 +37,7 @@ class HomePage extends StatelessWidget {
                 suffixIconConstraints: const BoxConstraints(minWidth: 30, maxHeight: 30),
                 prefixIcon: IconButton(
                   onPressed: () {
+                    BlocProvider.of<SearchBloc>(context).add(SearchEventFetch(dataSave.text));
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => PageResults(query: dataSave.text))
@@ -56,7 +61,7 @@ class HomePage extends StatelessWidget {
 
 AppBar appBar() {
   return AppBar(
-      title: const Text("BreakFast",
+      title: const Text("OrmaSearch",
         style: TextStyle(
           color: Colors.black,
           fontSize: 25,

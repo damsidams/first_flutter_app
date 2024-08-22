@@ -18,7 +18,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     var url = "https://google.com/search?q=";
     url = url + event.query;
 
-    final Uri request = Uri(scheme: 'https', host: url, path: 'headers/');
+    final Uri request = Uri.parse(url);
 
     Response response = await http.get(request);
     emit(state.copyWith(newContent: response.body));

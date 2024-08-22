@@ -7,40 +7,33 @@ import 'bloc/search_event.dart';
 
 class PageResults extends StatelessWidget {
   String query;
+
   PageResults({super.key, required this.query});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) => SearchBloc(),
-
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Results Route'),
-          ),
-          body: Center(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [ ElevatedButton(
-                  child: const Text('Go Back'),
-                  onPressed: () {
-                    BlocProvider.of<SearchBloc>(context).add(SearchEventFetch(query));
-                    //Navigator.pop(context);
-                    // Navigate to second route when tapped.
-                  },
-                ),
-                  Text(query),
-                  BlocBuilder<SearchBloc, SearchState>(
-                    builder: (context, state) =>
-                        Container(
-                            child:
-                            Text(state.content.toString())
-                        ),
-                  )
-                ]
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Results'),
+        ),
+        body: Center(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            ElevatedButton(
+              child: const Text('Go Back'),
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
-          ),
-        )
-    );
+            Text(query),
+            BlocBuilder<SearchBloc, SearchState>(
+              builder: (context, state) =>
+                  Container(
+                      child:
+                      Text(state.content.toString()),
+
+                  ),
+            )
+          ]),
+        ));
   }
-  }
+}

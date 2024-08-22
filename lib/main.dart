@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ormaes/pages/bloc/search_bloc.dart';
 import 'package:ormaes/pages/home.dart';
 
 void main() {
@@ -11,14 +13,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return BlocProvider(create: (context) => SearchBloc(), child: MaterialApp(
       title: 'Flutter First APP',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: HomePage()),
     );
   }
 }
